@@ -58,6 +58,14 @@ class Tokenizer {
    * \returns The decoded text.
    */
   virtual std::string Decode(const std::vector<int32_t>& ids) = 0;
+  /*!
+   * \brief Decode token ids into text.
+   * \param ids The token ids to decode.
+   * \param skip_special_tokens Whether to omit special tokens (added tokens
+   *        flagged `special`) from the decoded text.
+   * \return The decoded text.
+   */
+  virtual std::string Decode(const std::vector<int32_t>& ids, bool skip_special_tokens) = 0;
 
   /*!
    * \brief Returns the vocabulary size. Special tokens are considered.

@@ -72,7 +72,7 @@ class HFTokenizer : public Tokenizer {
   }
 
   // use i32 to be consistent with sentencepiece
-  std::string Decode(const std::vector<int32_t>& ids, bool skip_special_tokens) {
+  std::string Decode(const std::vector<int32_t>& ids, bool skip_special_tokens) override {
     tokenizers_decode(handle_, reinterpret_cast<const uint32_t*>(ids.data()), ids.size(),
                       static_cast<int>(skip_special_tokens));
     const char* data;
